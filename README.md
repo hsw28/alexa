@@ -2,6 +2,8 @@
 Code for amazon echo's alexa
 
 # Resources:
+Video tutorial: https://developer.amazon.com/public/community/post/Tx9JUX8VZNUZY5/Free-Video-Training-An-Introduction-to-Amazon-Echo-and-the-Alexa-Skills-Kit
+
 Code examples incl wolfram: http://analyticphysics.com/Diversions/An%20Alexa%20Skills%20Kit%20%28ASK%29%20JavaScript%20Cookbook.htm
 
 General instructions: http://blog.anythings.co/alexa-skills-kit-tutorial/
