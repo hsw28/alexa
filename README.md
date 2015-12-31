@@ -28,3 +28,5 @@ Bus tracker: https://github.com/dustincoates/alexa-bus-schedule
 Uber, google cal, etc: https://github.com/zachfeldman/alexa-home
 
 Python starter: https://github.com/anjishnu/ask-alexa-pykit
+
+Ask wolfram in php: https://github.com/astrobleem/askwolfram
