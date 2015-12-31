@@ -2,7 +2,7 @@
 Code for amazon echo's alexa
 
 # Resources:
-Minimal code examples: http://analyticphysics.com/Diversions/An%20Alexa%20Skills%20Kit%20%28ASK%29%20JavaScript%20Cookbook.htm
+Code examples incl wolfram: http://analyticphysics.com/Diversions/An%20Alexa%20Skills%20Kit%20%28ASK%29%20JavaScript%20Cookbook.htm
 
 General instructions: http://blog.anythings.co/alexa-skills-kit-tutorial/
 
