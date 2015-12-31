@@ -19,6 +19,10 @@ Reddit suggestions: https://www.reddit.com/r/amazonecho/comments/3ydzjp/trying_t
 # Repositories:
 Simple examples: https://github.com/amzn/alexa-skills-kit-java
 
+Simple dice roll example: https://github.com/SeanMcTex/AlexaDiceRoller
+
+Stock information and tutorial: https://github.com/parisbutterfield/alexa-stocks
+
 Java examples and tutorial: https://github.com/matt-kruse/alexa-app
 
 Ton of different skills inc wolfram: https://github.com/moditripit/echoskills
