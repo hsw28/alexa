@@ -1,7 +1,0 @@
-ConvertFlour covert {100|grams} of flour
-ConvertSugar convert {100|grams} of sugar
-ConvertPowderedSugar {100|grams} of powdered sugar
-ConvertBrownSugar {100|grams} of brown sugar
-ConvertButter {100|grams} of butter
-ConvertBreadFlour {100|grams} of bread flour
-
