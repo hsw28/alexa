@@ -89,7 +89,7 @@ $path = 'http://api.wolframalpha.com/v2/query?input=';
 $append_id = '&appid=';
 
 // GET YOUR OWN WOLFRAM API KEY ITS FREE
-$append_id .= '53KT7V-TKV65Y8VJ5'; //
+$append_id .= 'XXXXXX-XXXXXXXXXX'; //
 // GET YOUR OWN WOLFRAM API KEY ITS FREE
 // https://developer.wolframalpha.com/portal/apisignup.html
 
