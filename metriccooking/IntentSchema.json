@@ -4,7 +4,7 @@
       "intent": "ConvertFlour",
       "slots": [
 		  {
-			  "name": "Grams", 
+		  "name": "Grams", 
 	          "type": "NUMBER"
 		  }
       ]
@@ -13,7 +13,7 @@
 		"intent": "ConvertSugar",
 		"slots": [
   		  {
-  			  "name": "Grams",
+  		  "name": "Grams",
 	          "type": "NUMBER"
   		  },
 		  
@@ -26,7 +26,7 @@
 		"intent": "ConvertPowderedSugar",
 		"slots": [
   		  {
-  			  "name": "Grams",
+  		  "name": "Grams",
 	          "type": "NUMBER"
   		  },
 		  
@@ -39,7 +39,7 @@
 		"intent": "ConvertBrownSugar",
 		"slots": [
   		  {
-  			  "name": "Grams",
+  		  "name": "Grams",
 	          "type": "NUMBER"
   		  },
 		  
@@ -53,7 +53,7 @@
 		"intent": "ConvertButter",
 		"slots": [
   		  {
-  			  "name": "Grams",
+  	          "name": "Grams",
 	          "type": "NUMBER"
   		  },
 		  
@@ -65,7 +65,7 @@
 		"intent": "ConvertBreadFlour",
 		"slots": [
   		  {
-  			  "name": "Grams",
+  		  "name": "Grams",
 	          "type": "NUMBER"
   		  },
 		  
