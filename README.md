@@ -1,7 +1,7 @@
 # alexa
 Code for amazon echo's alexa
 Currently contains:
-- AskWolfram: ask Alexa to search Wolfram Alpha, in progress
+- AskWolfram: ask Alexa to search Wolfram Alpha, completed
 - MetricCooking: will convert different ingrediants form grams to cups, finished and submitted to Amazon skills
 
 # Resources:
@@ -22,17 +22,17 @@ Reddit suggestions: https://www.reddit.com/r/amazonecho/comments/3ydzjp/trying_t
 # Repositories:
 Simple examples: https://github.com/amzn/alexa-skills-kit-java
 
-Simple dice roll example: https://github.com/SeanMcTex/AlexaDiceRoller
++Simple dice roll example: https://github.com/SeanMcTex/AlexaDiceRoller
 
-Stock information and tutorial: https://github.com/parisbutterfield/alexa-stocks
++Stock information and tutorial: https://github.com/parisbutterfield/alexa-stocks
 
-Java examples and tutorial: https://github.com/matt-kruse/alexa-app
++Java tutorial: https://github.com/matt-kruse/alexa-app
 
-Ton of different skills inc wolfram: https://github.com/moditripit/echoskills
+Ton of different skills inc urban dictionary, wolfram, etc. In C++: https://github.com/moditripit/echoskills
+
+Uber, google cal, evernote: https://github.com/zachfeldman/alexa-home
 
 Bus tracker: https://github.com/dustincoates/alexa-bus-schedule
-
-Uber, google cal, etc: https://github.com/zachfeldman/alexa-home
 
 Python starter: https://github.com/anjishnu/ask-alexa-pykit
 
