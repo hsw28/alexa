@@ -1,3 +1,35 @@
 WhatIs {what is the atomic weight of boron | Question}
+WhatIs {what is thirty divided by five | Question}
+WhatIs {what did Alexander Graham Bell invent | Question}
+WhatIs {what are the prime roots of fifty | Question}
+WhatIs {what do eleven plus seven equal | Question}
+WhatIs {what's paired with red wine | Question}
+
 WhatIs {when is sunset tonight | Question}
+WhatIs {when's the next eclipse | Question}
+WhatIs {when did the Nazis invade Poland | Question}
+WhatIs {when are girls bat mitzvahs | Question}
+WhatIs {when do you multiply a matrix | Question}
+
 WhatIs {how tall is mount everest | Question}
+WhatIs {how many miles in an acre | Question}
+WhatIs {how is metal tempered | Question}
+WhatIs {how's chocolate made | Question}
+WhatIs {how are bills passed | Question}
+WhatIs {how do you take a derivative | Question}
+WhatIs {how did the supreme court rule on roe v wade | Question}
+
+WhatIs {where is Chicago | Question}
+WhatIs {where did George Washington die | Question}
+WhatIs {where are the pyramids | Question}
+WhatIs {where do vikings come from | Question}
+WhatIs {where's San Diego | Question}
+
+WhatIs {Why is the sky blue | Question}
+WhatIs {Why did the germans lose WWII | Question}
+WhatIs {Why are male cardinals red | Question}
+WhatIs {Why do cats purr | Question}
+
+
+
+
