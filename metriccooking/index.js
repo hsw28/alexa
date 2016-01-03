@@ -90,25 +90,7 @@ function onIntent(intentRequest, session, callback) {
 }
 
 
-/**
-    // Dispatch to your skill's intent handlers
-	if ("RollOneDieIntent" === intentName) {
-        getOneDie(intent, session, callback);
-	} else if ("RollMultipleDiceIntent" == intentName) {
-		getMultipleDice(intent, session, callback);
-    } else if ("HelpIntent" === intentName) {
-        getWelcomeResponse(callback);
-    } else {
-        throw "Invalid intent";
-    }
-}
 
-*/
-
-/**
- * Called when the user ends the session.
- * Is not called when the skill returns shouldEndSession=true.
- */
 function onSessionEnded(sessionEndedRequest, session) {
     console.log("onSessionEnded requestId=" + sessionEndedRequest.requestId
                 + ", sessionId=" + session.sessionId);
