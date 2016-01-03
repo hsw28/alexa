@@ -4,8 +4,8 @@
       "intent": "ConvertFlour",
       "slots": [
 		  {
-		  "name": "Grams", 
-	          "type": "NUMBER"
+			  "name": "Grams", 
+	          "type": "AMAZON.NUMBER"
 		  }
       ]
     },
@@ -13,9 +13,9 @@
 		"intent": "ConvertSugar",
 		"slots": [
   		  {
-  		  "name": "Grams",
-	          "type": "NUMBER"
-  		  },
+  			  "name": "Grams",
+	          "type": "AMAZON.NUMBER"
+  		  }
 		  
 		]
 	},
@@ -26,9 +26,9 @@
 		"intent": "ConvertPowderedSugar",
 		"slots": [
   		  {
-  		  "name": "Grams",
-	          "type": "NUMBER"
-  		  },
+  			  "name": "Grams",
+	          "type": "AMAZON.NUMBER"
+  		  }
 		  
 		]
 	},
@@ -39,9 +39,9 @@
 		"intent": "ConvertBrownSugar",
 		"slots": [
   		  {
-  		  "name": "Grams",
-	          "type": "NUMBER"
-  		  },
+  			  "name": "Grams",
+	          "type": "AMAZON.NUMBER"
+  		  }
 		  
 		]
 	},
@@ -53,9 +53,9 @@
 		"intent": "ConvertButter",
 		"slots": [
   		  {
-  	          "name": "Grams",
-	          "type": "NUMBER"
-  		  },
+  			  "name": "Grams",
+	          "type": "AMAZON.NUMBER"
+  		  }
 		  
 		]
 	},
@@ -65,9 +65,9 @@
 		"intent": "ConvertBreadFlour",
 		"slots": [
   		  {
-  		  "name": "Grams",
-	          "type": "NUMBER"
-  		  },
+  			  "name": "Grams",
+	          "type": "AMAZON.NUMBER"
+  		  }
 		  
 		]
 	},
