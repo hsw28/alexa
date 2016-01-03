@@ -2,7 +2,7 @@
 Code for amazon echo's alexa
 Currently contains:
 - AskWolfram: ask Alexa to search Wolfram Alpha, obtained from https://github.com/astrobleem and modified
-- MetricCooking: in progress, will convert different ingrediants form grams to cups
+- MetricCooking: will convert different ingrediants form grams to cups, finished and submitted to Amazon skills
 
 # Resources:
 Video tutorial: https://developer.amazon.com/public/community/post/Tx9JUX8VZNUZY5/Free-Video-Training-An-Introduction-to-Amazon-Echo-and-the-Alexa-Skills-Kit
