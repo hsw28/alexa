@@ -138,7 +138,7 @@ function getFlour( intent, session, callback ) {
     var shouldEndSession = false;
     var speechOutput = "";
     var x = intent.slots.Grams.value;
-    var y = parseInt(x)
+    var y = parseInt(x);
 	var z = (y/128);
 	z = Math.floor(z * 100) / 100;
 	speechOutput = "Converting " + y + " grams of flour is " + z + " cups of flour.";
@@ -153,7 +153,7 @@ function getSugar( intent, session, callback ) {
     var shouldEndSession = false;
     var speechOutput = "";
     var x = intent.slots.Grams.value;
-    var y = parseInt(x)
+    var y = parseInt(x);
 	var z = (y/200);
 	z = Math.floor(z * 100) / 100;
 	speechOutput = "Converting" + y + " grams of sugar is " + z + " cups of sugar.";
@@ -167,7 +167,7 @@ function getPowderedSugar( intent, session, callback ) {
     var shouldEndSession = false;
     var speechOutput = "";
      var x = intent.slots.Grams.value;
-    var y = parseInt(x)
+    var y = parseInt(x);
 	var z = (y/128);
 	z = Math.floor(z * 100) / 100;
 	speechOutput = "Converting" + y + " grams of powdered sugar is " + z + " cups of powdered sugar.";
@@ -181,7 +181,7 @@ function getBrownSugar( intent, session, callback ) {
     var shouldEndSession = false;
     var speechOutput = "";
     var x = intent.slots.Grams.value;
-    var y = parseInt(x)
+    var y = parseInt(x);
 	var z = (y/220);
 	z = Math.floor(z * 100) / 100;
 	speechOutput = "Converting" + y + " grams of brown sugar is " + z + " cups of brown sugar.";
@@ -209,7 +209,7 @@ function getButter( intent, session, callback ) {
     var shouldEndSession = false;
     var speechOutput = "";
     var x = intent.slots.Grams.value;
-    var y = parseInt(x)
+    var y = parseInt(x);
 	var z = (y/227);
 	z = Math.floor(z * 100) / 100;
 	speechOutput = "Converting" + y + " grams of butter is " + z + " cups of butter.";
