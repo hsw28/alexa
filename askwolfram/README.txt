@@ -1,0 +1,2 @@
+Code written by: http://analyticphysics.com/Diversions/An%20Alexa%20Skills%20Kit%20%28ASK%29%20JavaScript%20Cookbook.htm
+Code modified by: https://github.com/hsw28

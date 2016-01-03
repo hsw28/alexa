@@ -1,13 +1,9 @@
 {
-  "intents": [
-    {
-      "intent": "WhatIsIntent",
-      "slots": [
-        {
-          "name": "Ans",
-          "type": "LITERAL"
-        }
-      ]
-    }
-  ]
+  "intents": [ {
+    "intent": "WhatIs",
+    "slots": [ {
+       "name": "Question",
+       "type": "LITERAL"
+    } ]
+  } ]
 }
