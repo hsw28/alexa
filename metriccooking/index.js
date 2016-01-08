@@ -82,8 +82,8 @@ function onIntent(intentRequest, session, callback) {
 		getButter(intent, session, callback);
 	} else if ("ConvertBreadFlour" == intentName) {
 		getBreadFlour(intent, session, callback);
-    } else if ("HelpIntent" === intentName) {
-        getWelcomeResponse(callback);
+    } else if ("AMAZON.HelpIntent" === intentName) {
+        getHelp(intent,session, callback);
     } else {
         throw "Invalid intent";
     }
@@ -106,8 +106,8 @@ function getWelcomeResponse(callback) {
     var speechOutput = "Welcome to grams to cups recipe converter";
     // If the user either does not reply to the welcome message or says something that is not
     // understood, they will be prompted again with this text.
-    var repromptText = "Please say what you'd like converted";
-    var shouldEndSession = true;
+    var repromptText = "Ask me to convert common baking ingredients from grams to cups!";
+    var shouldEndSession = false;
 
     callback(sessionAttributes,
              buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
@@ -117,7 +117,7 @@ function getFlour( intent, session, callback ) {
     var cardTitle = intent.name;
     var repromptText = null;
     var sessionAttributes = {};
-    var shouldEndSession = false;
+    var shouldEndSession = true;
     var speechOutput = "";
     var x = intent.slots.Grams.value;
     var y = parseInt(x);
@@ -132,13 +132,13 @@ function getSugar( intent, session, callback ) {
     var cardTitle = intent.name;
     var repromptText = null;
     var sessionAttributes = {};
-    var shouldEndSession = false;
+    var shouldEndSession = true;
     var speechOutput = "";
     var x = intent.slots.Grams.value;
     var y = parseInt(x);
 	var z = (y/200);
 	z = Math.floor(z * 100) / 100;
-	speechOutput = "Converting" + y + " grams of sugar is " + z + " cups of sugar.";
+	speechOutput = "Converting " + y + " grams of sugar is " + z + " cups of sugar.";
     callback(sessionAttributes,
              buildSpeechletResponse(intent.name, speechOutput, repromptText, shouldEndSession));	
 }
@@ -146,7 +146,7 @@ function getPowderedSugar( intent, session, callback ) {
     var cardTitle = intent.name;
     var repromptText = null;
     var sessionAttributes = {};
-    var shouldEndSession = false;
+    var shouldEndSession = true;
     var speechOutput = "";
      var x = intent.slots.Grams.value;
     var y = parseInt(x);
@@ -160,13 +160,13 @@ function getBrownSugar( intent, session, callback ) {
     var cardTitle = intent.name;
     var repromptText = null;
     var sessionAttributes = {};
-    var shouldEndSession = false;
+    var shouldEndSession = true;
     var speechOutput = "";
     var x = intent.slots.Grams.value;
     var y = parseInt(x);
 	var z = (y/220);
 	z = Math.floor(z * 100) / 100;
-	speechOutput = "Converting" + y + " grams of brown sugar is " + z + " cups of brown sugar.";
+	speechOutput = "Converting " + y + " grams of brown sugar is " + z + " cups of brown sugar.";
     callback(sessionAttributes,
              buildSpeechletResponse(intent.name, speechOutput, repromptText, shouldEndSession));	
 }
@@ -174,13 +174,13 @@ function getBreadFlour( intent, session, callback ) {
     var cardTitle = intent.name;
     var repromptText = null;
     var sessionAttributes = {};
-    var shouldEndSession = false;
+    var shouldEndSession = true;
     var speechOutput = "";
     var x = intent.slots.Grams.value;
-    var y = parseInt(x)
+    var y = parseInt(x);
 	var z = (y/136);
 	z = Math.floor(z * 100) / 100;
-	speechOutput = "Converting" + y + " grams of bread flour is " + z + " cups of bread flour.";
+	speechOutput = "Converting " + y + " grams of bread flour is " + z + " cups of bread flour.";
     callback(sessionAttributes,
              buildSpeechletResponse(intent.name, speechOutput, repromptText, shouldEndSession));	
 }
@@ -188,17 +188,27 @@ function getButter( intent, session, callback ) {
     var cardTitle = intent.name;
     var repromptText = null;
     var sessionAttributes = {};
-    var shouldEndSession = false;
+    var shouldEndSession = true;
     var speechOutput = "";
     var x = intent.slots.Grams.value;
     var y = parseInt(x);
 	var z = (y/227);
 	z = Math.floor(z * 100) / 100;
-	speechOutput = "Converting" + y + " grams of butter is " + z + " cups of butter.";
+	speechOutput = "Converting " + y + " grams of butter is " + z + " cups of butter.";
     callback(sessionAttributes,
              buildSpeechletResponse(intent.name, speechOutput, repromptText, shouldEndSession));	
 }
 
+function getHelp( intent, session, callback ) {
+    var cardTitle = intent.name;
+    var repromptText = null;
+    var sessionAttributes = {};
+    var shouldEndSession = false;
+    var speechOutput = "";
+    speechOutput = "Ask me to convert baking ingredients from grams to cups! Try asking me to convert flour";
+    callback(sessionAttributes,
+        	buildSpeechletResponse(intent.name, speechOutput, repromptText, shouldEndSession));
+}
 
 // --------------- Helpers that build all of the responses -----------------------
 
@@ -208,11 +218,11 @@ function buildSpeechletResponse(title, output, repromptText, shouldEndSession) {
             type: "PlainText",
             text: output
         },
-        card: {
-            type: "Simple",
-            title: "SessionSpeechlet - " + title,
-            content: "SessionSpeechlet - " + output
-        },
+   //     card: {
+   //         type: "Simple",
+ //           title: "SessionSpeechlet - " + title,
+  //          content: "SessionSpeechlet - " + output
+   //     },
         reprompt: {
             outputSpeech: {
                 type: "PlainText",
@@ -230,3 +240,4 @@ function buildResponse(sessionAttributes, speechletResponse) {
         response: speechletResponse
     }
 }
+

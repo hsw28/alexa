@@ -12,6 +12,13 @@ ConvertBrownSugar convert {Grams} grams of brown sugar to cups
 ConvertButter convert {Grams} grams of butter to cups
 ConvertBreadFlour convert {Grams} grams of bread flour to cups
 
+ConvertFlour to covert {Grams} grams of flour to cups
+ConvertSugar to convert {Grams} grams of sugar to cups
+ConvertPowderedSugar to convert {Grams} grams of powdered sugar to cups
+ConvertBrownSugar to convert {Grams} grams of brown sugar to cups
+ConvertButter to convert {Grams} grams of butter to cups
+ConvertBreadFlour to convert {Grams} grams of bread flour to cups
+
 ConvertFlour what is {Grams} grams of flour in cups
 ConvertSugar what is {Grams} grams of sugar in cups
 ConvertPowderedSugar what is {Grams} grams of powdered sugar in cups
