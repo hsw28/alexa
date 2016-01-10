@@ -6,7 +6,10 @@ var http       = require('http')
   , MTA_KEY    = process.env.MTA_KEY;
 
 var url = function(stopId){
-  return 'http://bustime.mta.info/api/siri/stop-monitoring.json?key=' + MTA_KEY + '&OperatorRef=MTA&MaximumStopVisits=1&MonitoringRef=' + stopId;
+  // testing for boston
+    return 'http://realtime.mbta.com/developer/api/v2/predictionsbystop?api_key=IkO_wrq44Uu40GRt1YgLpQ&stop=place-' + stopID + 'bbsta&format=json'
+
+//  return 'http://bustime.mta.info/api/siri/stop-monitoring.json?key=' + MTA_KEY + 'IkO_wrq44Uu40GRt1YgLpQ' + stopId; // original
 };
 
 var getJsonFromMta = function(stopId, callback){
@@ -84,7 +87,7 @@ BusSchedule.prototype.intentHandlers = {
   },
 
   HelpIntent: function(intent, session, response){
-    var speechOutput = 'Get the distance from arrival for any NYC bus stop ID. ' +
+    var speechOutput = 'Get the distance from arrival for any Boston bus stop ID. ' +
       'Which bus stop would you like?';
     response.ask(speechOutput);
   }
