@@ -1,9 +1,9 @@
 {
   "name": "alexa-bus-time",
   "version": "1.0.0",
-  "description": "An Amazon Echo Skill that gets the distance away from a given stop for a New York City bus.",
+  "description": "An Amazon Echo Skill that gets the distance away from a given stop for a Boston bus.",
   "main": "index.js",
-  "author": "Dustin Coates",
+  "author": "Dustin Coates", "modified by github.com/hsw28"
   "license": "ISC",
   "dependencies": {
     "dotenv": "^1.2.0"
