@@ -1,82 +1,30 @@
 {
   "intents": [
     {
-      "intent": "ConvertFlour",
+      "intent": "ConvertG2C”,
       "slots": [
-		  {
-			  "name": "Grams", 
-	          "type": "AMAZON.NUMBER"
-		  }
+	{
+		“name”: “Item”,
+		“type”: “LIST_OF_ITEMS”	
+	},
+	{
+		"name": "Grams", 
+	        "type": "AMAZON.NUMBER"
+	}
       ]
-    },
-	{
-		"intent": "ConvertSugar",
-		"slots": [
-  		  {
-  			  "name": "Grams",
-	          "type": "AMAZON.NUMBER"
-  		  }
-		  
-		]
-	},
-	
-	
-	
-	{
-		"intent": "ConvertPowderedSugar",
-		"slots": [
-  		  {
-  			  "name": "Grams",
-	          "type": "AMAZON.NUMBER"
-  		  }
-		  
-		]
-	},
-	
-	
-	
-	{
-		"intent": "ConvertBrownSugar",
-		"slots": [
-  		  {
-  			  "name": "Grams",
-	          "type": "AMAZON.NUMBER"
-  		  }
-		  
-		]
-	},
-	
-	
-	
-	
-	{
-		"intent": "ConvertButter",
-		"slots": [
-  		  {
-  			  "name": "Grams",
-	          "type": "AMAZON.NUMBER"
-  		  }
-		  
-		]
-	},
-	
-	
-		{
-		"intent": "ConvertBreadFlour",
-		"slots": [
-  		  {
-  			  "name": "Grams",
-	          "type": "AMAZON.NUMBER"
-  		  }
-		  
-		]
-	},
-	
-	
+   }
 	
     {
-      "intent": “AMAZON.HelpIntent"
-      "slots": []
+      "intent": “SupportedItems”
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
     }
   ]
 }

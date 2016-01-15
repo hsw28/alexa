@@ -70,20 +70,23 @@ function onIntent(intentRequest, session, callback) {
         intentName = intentRequest.intent.name;
 
     // Dispatch to your skill's intent handlers -- CHANGED
-	if ("ConvertFlour" === intentName) {
-        getFlour(intent, session, callback);
-	} else if ("ConvertSugar" == intentName) {
-		getSugar(intent, session, callback);
-	} else if ("ConvertPowderedSugar" == intentName) {
-		getPowderedSugar(intent, session, callback);
-	} else if ("ConvertBrownSugar" == intentName) {
-		getBrownSugar(intent, session, callback);
-	} else if ("ConvertButter" == intentName) {
-		getButter(intent, session, callback);
-	} else if ("ConvertBreadFlour" == intentName) {
-		getBreadFlour(intent, session, callback);
+	if ("ConvertG2C" === intentName) {
+		return conversion(intent, session);
+	} else if ("SupportedItems" == intentName) {
+		 return handleSupportedItemsRequest(intent, session);
     } else if ("AMAZON.HelpIntent" === intentName) {
-        getHelp(intent,session, callback);
+        return handleHelpRequest();
+    } else if ("AMAZON.StopIntent".equals(intentName)) {
+        PlainTextOutputSpeech outputSpeech = new PlainTextOutputSpeech();
+        outputSpeech.setText("Goodbye");
+ 		return SpeechletResponse.newTellResponse(outputSpeech);
+    } else if ("AMAZON.CancelIntent".equals(intentName)) {
+        PlainTextOutputSpeech outputSpeech = new PlainTextOutputSpeech();
+        outputSpeech.setText("Goodbye");
+		return SpeechletResponse.newTellResponse(outputSpeech);
+    } else {
+        throw new SpeechletException("Invalid Intent");
+        }
     } else {
         throw "Invalid intent";
     }
@@ -100,115 +103,88 @@ function onSessionEnded(sessionEndedRequest, session) {
 // --------------- Functions that control the skill's behavior -----------------------
 
 function getWelcomeResponse(callback) {
-    // If we wanted to initialize the session to have some attributes we could add those here.
     var sessionAttributes = {};
     var cardTitle = "Welcome";
-    var speechOutput = "Welcome to grams to cups recipe converter";
+    var speechOutput = "Welcome to grams to cups recipe converter. Ask me to convert common baking ingredients from grams to cups!";
     // If the user either does not reply to the welcome message or says something that is not
     // understood, they will be prompted again with this text.
-    var repromptText = "Ask me to convert common baking ingredients from grams to cups!";
+    var repromptText = "I can convert ingredients from grams to cups. Ask me to convert an ingredient from grams to cups. To get a list of supported ingredients, ask which ingredients I can convert";
     var shouldEndSession = false;
 
     callback(sessionAttributes,
              buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
 }
 
-function getFlour( intent, session, callback ) { 
-    var cardTitle = intent.name;
+ private SpeechletResponse handleHelpRequest() {
+        String repromptText = "Ask me to convert common baking ingredients from grams to cups! Try asking me to convert flour";
+        String speechOutput =
+                "I can convert ingredients from grams to cups. Ask me to convert an ingredient from grams to cups. To get a list of supported ingredients, ask which ingredients I can convert";
+        return newAskResponse(speechOutput, repromptText);
+    }
+
+
+ private SpeechletResponse handleSupportedItemsRequest(final Intent intent,
+            final Session session) {
+        // get city re-prompt
+        String speechOutput =
+                "Currently, I know conversion information for these ingredients: flour, bread flour, sugar, powdered sugar, brown sugar, and butter. "
+                        + repromptText;
+        return newAskResponse(speechOutput, repromptText);
+    }
+
+/**
+private SpeechletResponse conversion(final Intent intent,  final Session session) {
+	try {
+		item = getItemFromIntent(intent, false);
+	} catch (Exception e) {
+		String speechOutput = 
+			"Currently, I know conversion information for these ingredients: flour, bread flour, sugar, powdered sugar, brown sugar, and butter.";
+					+ "Please ask me to convert from grams to cups";
+	}
+*/	
+
+function conversion ( intent, session, callback ) {
+	var cardTitle = intent.name;
     var repromptText = null;
     var sessionAttributes = {};
     var shouldEndSession = true;
     var speechOutput = "";
     var x = intent.slots.Grams.value;
     var y = parseInt(x);
-	var z = (y/128);
-	z = Math.floor(z * 100) / 100;
-	speechOutput = "Converting " + y + " grams of flour is " + z + " cups of flour.";
-	
-    callback(sessionAttributes,
-             buildSpeechletResponse(intent.name, speechOutput, repromptText, shouldEndSession));	
-}
-function getSugar( intent, session, callback ) { 
-    var cardTitle = intent.name;
-    var repromptText = null;
-    var sessionAttributes = {};
-    var shouldEndSession = true;
-    var speechOutput = "";
-    var x = intent.slots.Grams.value;
-    var y = parseInt(x);
-	var z = (y/200);
-	z = Math.floor(z * 100) / 100;
-	speechOutput = "Converting " + y + " grams of sugar is " + z + " cups of sugar.";
-    callback(sessionAttributes,
-             buildSpeechletResponse(intent.name, speechOutput, repromptText, shouldEndSession));	
-}
-function getPowderedSugar( intent, session, callback ) { 
-    var cardTitle = intent.name;
-    var repromptText = null;
-    var sessionAttributes = {};
-    var shouldEndSession = true;
-    var speechOutput = "";
-     var x = intent.slots.Grams.value;
-    var y = parseInt(x);
-	var z = (y/128);
-	z = Math.floor(z * 100) / 100;
-	speechOutput = "Converting" + y + " grams of powdered sugar is " + z + " cups of powdered sugar.";
-    callback(sessionAttributes,
-             buildSpeechletResponse(intent.name, speechOutput, repromptText, shouldEndSession));	
-}
-function getBrownSugar( intent, session, callback ) { 
-    var cardTitle = intent.name;
-    var repromptText = null;
-    var sessionAttributes = {};
-    var shouldEndSession = true;
-    var speechOutput = "";
-    var x = intent.slots.Grams.value;
-    var y = parseInt(x);
-	var z = (y/220);
-	z = Math.floor(z * 100) / 100;
-	speechOutput = "Converting " + y + " grams of brown sugar is " + z + " cups of brown sugar.";
-    callback(sessionAttributes,
-             buildSpeechletResponse(intent.name, speechOutput, repromptText, shouldEndSession));	
-}
-function getBreadFlour( intent, session, callback ) { 
-    var cardTitle = intent.name;
-    var repromptText = null;
-    var sessionAttributes = {};
-    var shouldEndSession = true;
-    var speechOutput = "";
-    var x = intent.slots.Grams.value;
-    var y = parseInt(x);
-	var z = (y/136);
-	z = Math.floor(z * 100) / 100;
-	speechOutput = "Converting " + y + " grams of bread flour is " + z + " cups of bread flour.";
-    callback(sessionAttributes,
-             buildSpeechletResponse(intent.name, speechOutput, repromptText, shouldEndSession));	
-}
-function getButter( intent, session, callback ) { 
-    var cardTitle = intent.name;
-    var repromptText = null;
-    var sessionAttributes = {};
-    var shouldEndSession = true;
-    var speechOutput = "";
-    var x = intent.slots.Grams.value;
-    var y = parseInt(x);
-	var z = (y/227);
-	z = Math.floor(z * 100) / 100;
-	speechOutput = "Converting " + y + " grams of butter is " + z + " cups of butter.";
-    callback(sessionAttributes,
-             buildSpeechletResponse(intent.name, speechOutput, repromptText, shouldEndSession));	
+    var item = intent.slots.Item.value;
+    if (item == "flour"){
+		var z = (y/128);
+		z = Math.floor(z * 100) / 100;
+		speechOutput = "Converting " + y + " grams of flour is " + z + " cups of flour.";
+	} else if (item == "sugar"){
+		var z = (y/200);
+		z = Math.floor(z * 100) / 100;
+		speechOutput = "Converting " + y + " grams of sugar is " + z + " cups of sugar.";
+	} else if (item == "powdered sugar"){
+		var z = (y/128);
+		z = Math.floor(z * 100) / 100;
+		speechOutput = "Converting" + y + " grams of powdered sugar is " + z + " cups of powdered sugar.";
+	} else if (item == "brown sugar") {
+		var z = (y/220);
+		z = Math.floor(z * 100) / 100;
+		speechOutput = "Converting " + y + " grams of brown sugar is " + z + " cups of brown sugar.";
+	} else if (item == "bread flour") {
+		var z = (y/136);
+		z = Math.floor(z * 100) / 100;
+		speechOutput = "Converting " + y + " grams of bread flour is " + z + " cups of bread flour.";
+	} else if (item == "butter") {
+		var z = (y/227);
+		z = Math.floor(z * 100) / 100;
+		speechOutput = "Converting " + y + " grams of butter is " + z + " cups of butter.";
+	} else {
+		speechOutput = "Currently, I know conversion information for these ingredients: flour, bread flour, sugar, powdered sugar, brown sugar, and butter.";
+					+ "Please ask me to convert from grams to cups";
+	}
+	callback(sessionAttributes,
+             buildSpeechletResponse(intent.name, speechOutput, repromptText, shouldEndSession));
 }
 
-function getHelp( intent, session, callback ) {
-    var cardTitle = intent.name;
-    var repromptText = null;
-    var sessionAttributes = {};
-    var shouldEndSession = false;
-    var speechOutput = "";
-    speechOutput = "Ask me to convert baking ingredients from grams to cups! Try asking me to convert flour";
-    callback(sessionAttributes,
-        	buildSpeechletResponse(intent.name, speechOutput, repromptText, shouldEndSession));
-}
+
 
 // --------------- Helpers that build all of the responses -----------------------
 

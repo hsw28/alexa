@@ -1,41 +1,12 @@
-ConvertFlour covert {Grams} grams of flour
-ConvertSugar convert {Grams} grams of sugar
-ConvertPowderedSugar convert {Grams} grams of powdered sugar
-ConvertBrownSugar convert {Grams} grams of brown sugar
-ConvertButter convert {Grams} grams of butter
-ConvertBreadFlour convert {Grams} grams of bread flour
+ConvertG2C covert {Grams} grams of {Item}
+ConvertG2C covert {Grams} grams of {Item} to cups
+ConvertG2C to covert {Grams} grams of {Item} to cups
+ConvertG2C what is {Grams} grams of {Item} in cups
+ConvertG2C what are {Grams} grams of {Item} in cups
+ConvertG2C how many cups are in {Grams} grams of {Item}
 
-ConvertFlour covert {Grams} grams of flour to cups
-ConvertSugar convert {Grams} grams of sugar to cups
-ConvertPowderedSugar convert {Grams} grams of powdered sugar to cups
-ConvertBrownSugar convert {Grams} grams of brown sugar to cups
-ConvertButter convert {Grams} grams of butter to cups
-ConvertBreadFlour convert {Grams} grams of bread flour to cups
-
-ConvertFlour to covert {Grams} grams of flour to cups
-ConvertSugar to convert {Grams} grams of sugar to cups
-ConvertPowderedSugar to convert {Grams} grams of powdered sugar to cups
-ConvertBrownSugar to convert {Grams} grams of brown sugar to cups
-ConvertButter to convert {Grams} grams of butter to cups
-ConvertBreadFlour to convert {Grams} grams of bread flour to cups
-
-ConvertFlour what is {Grams} grams of flour in cups
-ConvertSugar what is {Grams} grams of sugar in cups
-ConvertPowderedSugar what is {Grams} grams of powdered sugar in cups
-ConvertBrownSugar what is {Grams} grams of brown sugar in cups
-ConvertButter what is {Grams} grams of butter in cups
-ConvertBreadFlour what is {Grams} grams of bread flour in cups
-
-ConvertFlour what are {Grams} grams of flour in cups
-ConvertSugar what are {Grams} grams of sugar in cups
-ConvertPowderedSugar what are {Grams} grams of powdered sugar in cups
-ConvertBrownSugar what are {Grams} grams of brown sugar in cups
-ConvertButter what are {Grams} grams of butter in cups
-ConvertBreadFlour what are {Grams} grams of bread flour in cups
-
-ConvertFlour how many cups are in {Grams} grams of flour
-ConvertSugar how many cups are in {Grams} grams of sugar 
-ConvertPowderedSugar how many cups are in {Grams} grams of powdered sugar 
-ConvertBrownSugar how many cups are in {Grams} grams of brown sugar
-ConvertButter how many cups are in {Grams} grams of butter
-ConvertBreadFlour how many cups are in {Grams} grams of bread flour 
+SupportedItems what ingredients?
+SupportedItems what ingredients are supported?
+SupportedItems what ingredients can you convert?
+SupportedItems which ingredients?
+SupportedItems which ingredients can you convert?
