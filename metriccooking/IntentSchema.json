@@ -1,21 +1,21 @@
 {
   "intents": [
     {
-      "intent": "ConvertG2C”,
+      "intent": "ConvertG2C",
       "slots": [
-	{
-		“name”: “Item”,
-		“type”: “LIST_OF_ITEMS”	
-	},
+		{
+		"name": "Item",
+		"type": "LIST_OF_ITEMS"	
+		},
 	{
 		"name": "Grams", 
-	        "type": "AMAZON.NUMBER"
+	    "type": "AMAZON.NUMBER"
 	}
       ]
-   }
-	
+    },
+    
     {
-      "intent": “SupportedItems”
+      "intent": "SupportedItems"
     },
     {
       "intent": "AMAZON.HelpIntent"
