@@ -70,23 +70,18 @@ function onIntent(intentRequest, session, callback) {
         intentName = intentRequest.intent.name;
 
     // Dispatch to your skill's intent handlers -- CHANGED
-	if ("ConvertG2C" === intentName) {
+	if ("ConvertGTC" === intentName) {
 		return conversion(intent, session);
 	} else if ("SupportedItems" == intentName) {
 		 return handleSupportedItemsRequest(intent, session);
     } else if ("AMAZON.HelpIntent" === intentName) {
         return handleHelpRequest();
     } else if ("AMAZON.StopIntent".equals(intentName)) {
-        PlainTextOutputSpeech outputSpeech = new PlainTextOutputSpeech();
         outputSpeech.setText("Goodbye");
  		return SpeechletResponse.newTellResponse(outputSpeech);
     } else if ("AMAZON.CancelIntent".equals(intentName)) {
-        PlainTextOutputSpeech outputSpeech = new PlainTextOutputSpeech();
         outputSpeech.setText("Goodbye");
 		return SpeechletResponse.newTellResponse(outputSpeech);
-    } else {
-        throw new SpeechletException("Invalid Intent");
-        }
     } else {
         throw "Invalid intent";
     }
@@ -106,42 +101,29 @@ function getWelcomeResponse(callback) {
     var sessionAttributes = {};
     var cardTitle = "Welcome";
     var speechOutput = "Welcome to grams to cups recipe converter. Ask me to convert common baking ingredients from grams to cups!";
-    // If the user either does not reply to the welcome message or says something that is not
-    // understood, they will be prompted again with this text.
     var repromptText = "I can convert ingredients from grams to cups. Ask me to convert an ingredient from grams to cups. To get a list of supported ingredients, ask which ingredients I can convert";
     var shouldEndSession = false;
-
-    callback(sessionAttributes,
-             buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
+    callback(sessionAttributes, buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
+    return newAskResponse(speechOutput, true, repromptText, false);
 }
 
- private SpeechletResponse handleHelpRequest() {
-        String repromptText = "Ask me to convert common baking ingredients from grams to cups! Try asking me to convert flour";
-        String speechOutput =
-                "I can convert ingredients from grams to cups. Ask me to convert an ingredient from grams to cups. To get a list of supported ingredients, ask which ingredients I can convert";
-        return newAskResponse(speechOutput, repromptText);
+function handleHelpRequest(callback) {
+        var sessionAttributes = {};
+        var cardTitle = "Help";
+        var speechOutput = "Ask me to convert common baking ingredients from grams to cups! Try asking me to convert flour. To get a list of supported ingredients, ask which ingredients I can convert";
+        var shouldEndSession = false;
+        callback(sessionAttributes, buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
+        return newAskResponse(speechOutput, true, repromptText, false);
+}
+
+
+function handleSupportedItemsRequest(callback) {
+        var speechOutput = "Currently, I know conversion information for these ingredients: flour, bread flour, sugar, powdered sugar, brown sugar, and butter." + repromptText;
+        callback(sessionAttributes, buildSpeechletResponse(intent.name, speechOutput, repromptText, shouldEndSession));
+        var shouldEndSession = false;
+        return newAskResponse(speechOutput, true, repromptText, false);
     }
 
-
- private SpeechletResponse handleSupportedItemsRequest(final Intent intent,
-            final Session session) {
-        // get city re-prompt
-        String speechOutput =
-                "Currently, I know conversion information for these ingredients: flour, bread flour, sugar, powdered sugar, brown sugar, and butter. "
-                        + repromptText;
-        return newAskResponse(speechOutput, repromptText);
-    }
-
-/**
-private SpeechletResponse conversion(final Intent intent,  final Session session) {
-	try {
-		item = getItemFromIntent(intent, false);
-	} catch (Exception e) {
-		String speechOutput = 
-			"Currently, I know conversion information for these ingredients: flour, bread flour, sugar, powdered sugar, brown sugar, and butter.";
-					+ "Please ask me to convert from grams to cups";
-	}
-*/	
 
 function conversion ( intent, session, callback ) {
 	var cardTitle = intent.name;
@@ -151,31 +133,31 @@ function conversion ( intent, session, callback ) {
     var speechOutput = "";
     var x = intent.slots.Grams.value;
     var y = parseInt(x);
-    var item = intent.slots.Item.value;
+    String item = intent.slots.Item.value;
     if (item == "flour"){
-		var z = (y/128);
-		z = Math.floor(z * 100) / 100;
-		speechOutput = "Converting " + y + " grams of flour is " + z + " cups of flour.";
+		var a = (y/128);
+		a = Math.floor(a * 100) / 100;
+		speechOutput = "Converting " + y + " grams of flour is " + a + " cups of flour.";
 	} else if (item == "sugar"){
-		var z = (y/200);
-		z = Math.floor(z * 100) / 100;
-		speechOutput = "Converting " + y + " grams of sugar is " + z + " cups of sugar.";
+		var b = (y/200);
+		b = Math.floor(b * 100) / 100;
+		speechOutput = "Converting " + y + " grams of sugar is " + b + " cups of sugar.";
 	} else if (item == "powdered sugar"){
-		var z = (y/128);
-		z = Math.floor(z * 100) / 100;
-		speechOutput = "Converting" + y + " grams of powdered sugar is " + z + " cups of powdered sugar.";
+		var c = (y/128);
+		c = Math.floor(c * 100) / 100;
+		speechOutput = "Converting" + y + " grams of powdered sugar is " + c + " cups of powdered sugar.";
 	} else if (item == "brown sugar") {
-		var z = (y/220);
-		z = Math.floor(z * 100) / 100;
-		speechOutput = "Converting " + y + " grams of brown sugar is " + z + " cups of brown sugar.";
+		var d = (y/220);
+		d = Math.floor(d * 100) / 100;
+		speechOutput = "Converting " + y + " grams of brown sugar is " + d + " cups of brown sugar.";
 	} else if (item == "bread flour") {
-		var z = (y/136);
-		z = Math.floor(z * 100) / 100;
-		speechOutput = "Converting " + y + " grams of bread flour is " + z + " cups of bread flour.";
+		var e = (y/136);
+		e = Math.floor(e * 100) / 100;
+		speechOutput = "Converting " + y + " grams of bread flour is " + e + " cups of bread flour.";
 	} else if (item == "butter") {
-		var z = (y/227);
-		z = Math.floor(z * 100) / 100;
-		speechOutput = "Converting " + y + " grams of butter is " + z + " cups of butter.";
+		var f = (y/227);
+		f = Math.floor(f * 100) / 100;
+		speechOutput = "Converting " + y + " grams of butter is " + f + " cups of butter.";
 	} else {
 		speechOutput = "Currently, I know conversion information for these ingredients: flour, bread flour, sugar, powdered sugar, brown sugar, and butter.";
 					+ "Please ask me to convert from grams to cups";
@@ -194,11 +176,7 @@ function buildSpeechletResponse(title, output, repromptText, shouldEndSession) {
             type: "PlainText",
             text: output
         },
-   //     card: {
-   //         type: "Simple",
- //           title: "SessionSpeechlet - " + title,
-  //          content: "SessionSpeechlet - " + output
-   //     },
+
         reprompt: {
             outputSpeech: {
                 type: "PlainText",
@@ -216,4 +194,3 @@ function buildResponse(sessionAttributes, speechletResponse) {
         response: speechletResponse
     }
 }
-
