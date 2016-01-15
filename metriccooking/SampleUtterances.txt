@@ -1,12 +1,11 @@
-ConvertG2C covert {Grams} grams of {Item}
-ConvertG2C covert {Grams} grams of {Item} to cups
-ConvertG2C to covert {Grams} grams of {Item} to cups
-ConvertG2C what is {Grams} grams of {Item} in cups
-ConvertG2C what are {Grams} grams of {Item} in cups
-ConvertG2C how many cups are in {Grams} grams of {Item}
+ConvertGTC covert {Grams} grams of {Item} to cups
+ConvertGTC to covert {Grams} grams of {Item} to cups
+ConvertGTC what is {Grams} grams of {Item} in cups
+ConvertGTC what are {Grams} grams of {Item} in cups
+ConvertGTC how many cups are in {Grams} grams of {Item}
 
-SupportedItems what ingredients?
-SupportedItems what ingredients are supported?
-SupportedItems what ingredients can you convert?
-SupportedItems which ingredients?
-SupportedItems which ingredients can you convert?
+SupportedItems what ingredients
+SupportedItems what ingredients are supported
+SupportedItems what ingredients can you convert
+SupportedItems which ingredients
+SupportedItems which ingredients can you convert
