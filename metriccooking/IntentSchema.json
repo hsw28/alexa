@@ -1,7 +1,7 @@
 {
   "intents": [
     {
-      "intent": "ConvertG2C",
+      "intent": "ConvertGTC",
       "slots": [
 		{
 		"name": "Item",
