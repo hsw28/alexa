@@ -48,8 +48,8 @@ function onSessionStarted(sessionStartedRequest, session) {
                 + ", sessionId=" + session.sessionId);
 }
 
-/**
- * Called when the user launches the skill without specifying what they want.
+
+ // Called when the user launches the skill without specifying what they want.
  
 function onLaunch(launchRequest, session, callback) {
     console.log("onLaunch requestId=" + launchRequest.requestId
@@ -98,7 +98,7 @@ function onSessionEnded(sessionEndedRequest, session) {
 
 // --------------- Functions that control the skill's behavior -----------------------
 
-function getWelcomeResponse(intent, session, callback) {
+function getWelcomeResponse(callback) {
     var sessionAttributes = {};
     var cardTitle = "Welcome";
     var speechOutput = "Welcome to grams to cups recipe converter. Ask me to convert common baking ingredients from grams to cups!";
