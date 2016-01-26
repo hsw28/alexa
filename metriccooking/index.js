@@ -50,7 +50,7 @@ function onSessionStarted(sessionStartedRequest, session) {
 
 /**
  * Called when the user launches the skill without specifying what they want.
- */
+ 
 function onLaunch(launchRequest, session, callback) {
     console.log("onLaunch requestId=" + launchRequest.requestId
                 + ", sessionId=" + session.sessionId);
@@ -58,6 +58,7 @@ function onLaunch(launchRequest, session, callback) {
     // Dispatch to your skill's launch.
     getWelcomeResponse(callback);
 }
+
 
 /**
  * Called when the user specifies an intent for this skill.
@@ -71,19 +72,17 @@ function onIntent(intentRequest, session, callback) {
 
     // Dispatch to your skill's intent handlers -- CHANGED
 	if ("ConvertGTC" === intentName) {
-		return conversion(intent, session);
+		conversion(intent, session, callback);
 	} else if ("SupportedItems" == intentName) {
-		 return handleSupportedItemsRequest(intent, session);
+		 handleSupportedItemsRequest(intent, session, callback);
     } else if ("AMAZON.HelpIntent" === intentName) {
-        return handleHelpRequest();
-    } else if ("AMAZON.StopIntent".equals(intentName)) {
-        outputSpeech.setText("Goodbye");
- 		return SpeechletResponse.newTellResponse(outputSpeech);
-    } else if ("AMAZON.CancelIntent".equals(intentName)) {
-        outputSpeech.setText("Goodbye");
-		return SpeechletResponse.newTellResponse(outputSpeech);
+        handleHelpRequest(intent, session, callback);
+    } else if ("AMAZON.StopIntent" == intentName) {
+        stop(intent, session, callback);
+    } else if ("AMAZON.CancelIntent" == intentName) {
+        cancel(intent, session, callback);
     } else {
-        throw "Invalid intent";
+        throw new SpeechletException ("Invalid intent");
     }
 }
 
@@ -97,7 +96,7 @@ function onSessionEnded(sessionEndedRequest, session) {
 
 // --------------- Functions that control the skill's behavior -----------------------
 
-function getWelcomeResponse(callback) {
+function getWelcomeResponse(intent, session, callback) {
     var sessionAttributes = {};
     var cardTitle = "Welcome";
     var speechOutput = "Welcome to grams to cups recipe converter. Ask me to convert common baking ingredients from grams to cups!";
@@ -107,21 +106,44 @@ function getWelcomeResponse(callback) {
     return newAskResponse(speechOutput, true, repromptText, false);
 }
 
-function handleHelpRequest(callback) {
+function handleHelpRequest(intent, session, callback) {
+        var cardTitle = intent.name;
+        var repromptText = null;
         var sessionAttributes = {};
-        var cardTitle = "Help";
-        var speechOutput = "Ask me to convert common baking ingredients from grams to cups! Try asking me to convert flour. To get a list of supported ingredients, ask which ingredients I can convert";
         var shouldEndSession = false;
+        var speechOutput = "Ask me to convert common baking ingredients from grams to cups! Try asking me to convert flour. To get a list of supported ingredients, ask which ingredients I can convert";
         callback(sessionAttributes, buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
         return newAskResponse(speechOutput, true, repromptText, false);
 }
 
-
-function handleSupportedItemsRequest(callback) {
-        var speechOutput = "Currently, I know conversion information for these ingredients: flour, bread flour, sugar, powdered sugar, brown sugar, and butter." + repromptText;
-        callback(sessionAttributes, buildSpeechletResponse(intent.name, speechOutput, repromptText, shouldEndSession));
-        var shouldEndSession = false;
+function stop(intent, session, callback) {
+        var cardTitle = intent.name;
+        var repromptText = null;
+        var sessionAttributes = {};
+        var shouldEndSession = true;
+        var speechOutput = "Goodbye";
+        callback(sessionAttributes, buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
         return newAskResponse(speechOutput, true, repromptText, false);
+}
+
+function cancel(intent, session, callback) {
+        var cardTitle = intent.name;
+        var repromptText = null;
+        var sessionAttributes = {};
+        var shouldEndSession = true;
+        var speechOutput = "Goodbye";
+        callback(sessionAttributes, buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
+        return newAskResponse(speechOutput, true, repromptText, false);
+}
+
+function handleSupportedItemsRequest(intent, session, callback) {
+        var cardTitle = intent.name;
+        var repromptText = null;
+        var sessionAttributes = {};
+        var shouldEndSession = false;
+        speechOutput = "Currently, I know conversion information for these ingredients: flour, bread flour, sugar, powdered sugar, brown sugar, and butter. Please ask me to convert one of these ingrediants from grams to cups";
+        callback(sessionAttributes,
+             buildSpeechletResponse(intent.name, speechOutput, repromptText, shouldEndSession));
     }
 
 
@@ -133,7 +155,7 @@ function conversion ( intent, session, callback ) {
     var speechOutput = "";
     var x = intent.slots.Grams.value;
     var y = parseInt(x);
-    String item = intent.slots.Item.value;
+    var item = intent.slots.Item.value; 
     if (item == "flour"){
 		var a = (y/128);
 		a = Math.floor(a * 100) / 100;
@@ -159,9 +181,9 @@ function conversion ( intent, session, callback ) {
 		f = Math.floor(f * 100) / 100;
 		speechOutput = "Converting " + y + " grams of butter is " + f + " cups of butter.";
 	} else {
-		speechOutput = "Currently, I know conversion information for these ingredients: flour, bread flour, sugar, powdered sugar, brown sugar, and butter.";
-					+ "Please ask me to convert from grams to cups";
+		speechOutput = "I don't know that ingrediant! Currently, I know conversion information for these ingredients: flour, bread flour, sugar, powdered sugar, brown sugar, and butter.";
 	}
+	
 	callback(sessionAttributes,
              buildSpeechletResponse(intent.name, speechOutput, repromptText, shouldEndSession));
 }
