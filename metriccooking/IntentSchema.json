@@ -25,6 +25,9 @@
     },
     {
       "intent": "AMAZON.CancelIntent"
+    },
+    { 
+      "intent": "ConvertCTG"
     }
   ]
 }

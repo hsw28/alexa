@@ -73,6 +73,8 @@ function onIntent(intentRequest, session, callback) {
     // Dispatch to your skill's intent handlers -- CHANGED
 	if ("ConvertGTC" === intentName) {
 		conversion(intent, session, callback);
+	} else if ("ConvertCTG" === intentName) {
+		cantdo(intent, session, callback);
 	} else if ("SupportedItems" == intentName) {
 		 handleSupportedItemsRequest(intent, session, callback);
     } else if ("AMAZON.HelpIntent" === intentName) {
@@ -111,7 +113,7 @@ function handleHelpRequest(intent, session, callback) {
         var repromptText = null;
         var sessionAttributes = {};
         var shouldEndSession = false;
-        var speechOutput = "Ask me to convert common baking ingredients from grams to cups! Try asking me to convert flour. To get a list of supported ingredients, ask which ingredients I can convert";
+        speechOutput = "Ask me to convert common baking ingredients from grams to cups! Try asking me to convert flour. To get a list of supported ingredients, ask which ingredients I can convert";
         callback(sessionAttributes, buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
         return newAskResponse(speechOutput, true, repromptText, false);
 }
@@ -121,7 +123,7 @@ function stop(intent, session, callback) {
         var repromptText = null;
         var sessionAttributes = {};
         var shouldEndSession = true;
-        var speechOutput = "Goodbye";
+        speechOutput = "Goodbye";
         callback(sessionAttributes, buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
         return newAskResponse(speechOutput, true, repromptText, false);
 }
@@ -131,7 +133,17 @@ function cancel(intent, session, callback) {
         var repromptText = null;
         var sessionAttributes = {};
         var shouldEndSession = true;
-        var speechOutput = "Goodbye";
+        speechOutput = "Goodbye";
+        callback(sessionAttributes, buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
+        return newAskResponse(speechOutput, true, repromptText, false);
+}
+
+function cantdo(intent, session, callback) {
+        var cardTitle = intent.name;
+        var repromptText = null;
+        var sessionAttributes = {};
+        var shouldEndSession = false;
+        speechOutput = "Right now I can only convert from grams to cups. Please ask me to convert an ingrediant from grams to cups!";
         callback(sessionAttributes, buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
         return newAskResponse(speechOutput, true, repromptText, false);
 }

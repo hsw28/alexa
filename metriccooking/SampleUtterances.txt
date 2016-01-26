@@ -4,8 +4,15 @@ ConvertGTC what is {Grams} grams of {Item} in cups
 ConvertGTC what are {Grams} grams of {Item} in cups
 ConvertGTC how many cups are in {Grams} grams of {Item}
 
+ConvertCTG convert cups of item to grams
+ConvertCTG to convert cups of item to grams
+ConvertCTG what is cups of item in grams
+ConvertCTG what are cups of item in grams
+ConvertCTG how many grams are in cups of item
+
 SupportedItems what ingredients
 SupportedItems what ingredients are supported
 SupportedItems what ingredients can you convert
+SupportedItems what can you convert
 SupportedItems which ingredients
 SupportedItems which ingredients can you convert
