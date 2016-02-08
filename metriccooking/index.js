@@ -143,7 +143,7 @@ function cantdo(intent, session, callback) {
         var repromptText = null;
         var sessionAttributes = {};
         var shouldEndSession = false;
-        speechOutput = "Right now I can only convert from grams to cups. Please ask me to convert an ingrediant from grams to cups!";
+        speechOutput = "Right now I can only convert from grams to cups. Please ask me to convert an ingredient from grams to cups!";
         callback(sessionAttributes, buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
         return newAskResponse(speechOutput, true, repromptText, false);
 }
@@ -153,7 +153,7 @@ function handleSupportedItemsRequest(intent, session, callback) {
         var repromptText = null;
         var sessionAttributes = {};
         var shouldEndSession = false;
-        speechOutput = "Currently, I know conversion information for these ingredients: flour, bread flour, sugar, powdered sugar, brown sugar, and butter. Please ask me to convert one of these ingrediants from grams to cups";
+        speechOutput = "Currently, I know conversion information for these ingredients: flour, bread flour, sugar, powdered sugar, brown sugar, and butter. Please ask me to convert one of these ingredients from grams to cups";
         callback(sessionAttributes,
              buildSpeechletResponse(intent.name, speechOutput, repromptText, shouldEndSession));
     }
@@ -193,7 +193,7 @@ function conversion ( intent, session, callback ) {
 		f = Math.floor(f * 100) / 100;
 		speechOutput = "Converting " + y + " grams of butter is " + f + " cups of butter.";
 	} else {
-		speechOutput = "I don't know that ingrediant! Currently, I know conversion information for these ingredients: flour, bread flour, sugar, powdered sugar, brown sugar, and butter.";
+		speechOutput = "I don't know that ingredient! Currently, I know conversion information for these ingredients: flour, bread flour, sugar, powdered sugar, brown sugar, and butter.";
 	}
 	
 	callback(sessionAttributes,
