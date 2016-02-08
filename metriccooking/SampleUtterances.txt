@@ -1,14 +1,18 @@
-ConvertGTC covert {Grams} grams of {Item} to cups
-ConvertGTC to covert {Grams} grams of {Item} to cups
+ConvertGTC convert {Grams} grams of {Item} to cups
 ConvertGTC what is {Grams} grams of {Item} in cups
 ConvertGTC what are {Grams} grams of {Item} in cups
 ConvertGTC how many cups are in {Grams} grams of {Item}
+ConvertGTC how many cups is {Grams} grams of {Item}
+ConvertGTC tell me how many cups are in {Grams} of {Item} 
+ConvertGTC {Grams} grams of {Item} in cups
+ConvertGTC conversion of {Grams} grams of {Item} to cups
 
 ConvertCTG convert cups of item to grams
-ConvertCTG to convert cups of item to grams
-ConvertCTG what is cups of item in grams
+ConvertCTG what is a cup of item in grams
 ConvertCTG what are cups of item in grams
 ConvertCTG how many grams are in cups of item
+ConvertCTG tell me how many grams are in cups of item
+ConvertCTG cups of items in grams
 
 SupportedItems what ingredients
 SupportedItems what ingredients are supported
